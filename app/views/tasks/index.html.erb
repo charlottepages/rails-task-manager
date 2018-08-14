@@ -1,0 +1,17 @@
+<h1>My Tasks</h1>
+
+<% @tasks.each do |task| %>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1"><%= link_to task.title, task %></label>
+    <%= link_to delete_task_path(task.id), method: "DELETE" do %>
+      <%= fa_icon "trash-o" %>
+    <% end %>
+  </div>
+<% end %>
+
+<hr>
+
+<%= link_to tasks_new_path do %>
+  <%= fa_icon "plus" %> Add a new task
+<% end %>
